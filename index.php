@@ -34,11 +34,11 @@
         <section class="card-holder">
             <div class="card bg-spring">
                 <div class="search-wrap">
-                    <form class="search-box">
-                        <button name="submit" class="btn" type="submit">
+                    <form method="get" class="search-box">
+                        <button class="btn" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
-                        <input class="input" type="text" placeholder="Search.." name="motClef">
+                        <input class="input" type="text" placeholder="Search.." name="search">
                     </form>
                 </div>
             </div>
