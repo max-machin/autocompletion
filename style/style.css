@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+  padding: 0 40px;
+}
+
+nav .logo {
+  line-height: 50px;
+  font-size: 25px;
+  font-weight: 800;
+  font-family: 'Century Gothic', sans-serif;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  display: inline-block;
+  line-height: 50px;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: rgb(44, 42, 42);
+  padding: 7px 13px;
+  border-radius: 3px
+}
+
+nav ul li a:active, nav ul li a:hover {
+  transition: .3s ease-out;
+  background-color: #878bfff0;
+}
+
+.headAccueil {
+  margin-top: 2vh;
+  text-align: center;
+}
+
+.headAccueil div {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.headAccueil img {
+  height: 140px;
+}
+
+.headAccueil h1 {
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: bold 700;
+  font-size: 40px;
+}
+
+.headAccueil p {
+  margin-top: 1vh;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: rgb(105, 105, 105);
+}
+
+.card-holder {
+  margin: 1.2em 0 7.6em 0;
+}
+
+.card {
+  font-family: -apple-system, BlinkMacSystemFont, 'Open Sans', sans-serif;
+  font-size: 3em;
+  font-weight: 800;
+  height: 4em;
+  width: 64em;
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  display: table-cell;
+  vertical-align: middle;
+  letter-spacing: -2px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.bg-spring {
+  background: -webkit-linear-gradient(70deg, #6a85fff0  30%, rgba(0,0,0,0) 30%), -webkit-linear-gradient(30deg, #FFDE59 60%, #ff5757bb 60%);
+  background: -o-linear-gradient(70deg, #6a85fff0  30%, rgba(0,0,0,0) 30%), -o-linear-gradient(30deg, #FFDE59 60%, #ff5757bb 60%);
+  background: -moz-linear-gradient(70deg, #6a85fff0  30%, rgba(0,0,0,0) 30%), -moz-linear-gradient(30deg, #FFDE59 60%, #ff5757bb 60%);
+  background: linear-gradient(70deg, #ff5757bb 30%, rgba(0,0,0,0) 30%), linear-gradient(25deg, #ffd15e 60%, #7b7ffff0 60%), linear-gradient(35deg, #8097fff0 77%, rgba(0,0,0,1) 77%);
+}
+
+.card-holder {
+  text-align: center;
+}
+
+.btn {
+  outline: none;
+  border: 0;
+  background-color: transparent;
+}
+
+.search-wrap {
+  width: 40%;
+  margin: 30px auto;
+}
+
+.search-wrap .search-box {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  
+}
+
+.search-wrap .search-box input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 18px;
+  border: none;
+  padding-left: 80px;
+}
+
+.search-wrap .search-box .btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  background:  black;
+  color: white;
+  z-index: 1;
+  cursor: pointer;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.search-wrap .search-box .btn .fas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.search-wrap .search-box input:focus {
+  border: none;
+  outline: none;
+}
+
+footer {
+  border-top: 1px solid #e6e6e6;
+}
+
+.footerFlex {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 1em 2em;
+  width: 100%;
+}
+
+.footerFlex ul {
+  float: right;
+  margin-right: 20px;
+}
+
+.footerFlex ul li {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footerFlex ul li a {
+  color: black;
+  padding: 7px 13px;
+  border-radius: 3px
+}
+
+.footerFlex ul li a:hover {
+  transition: .3s ease-out;
+  background-color: #ff5757bb;
+}
+
+.footerFlex h2 {
+  font-family: 'Century Gothic', sans-serif;
+  text-align: center;
+}
+
+.footerFlex p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.social {
+  margin-bottom: 2vh;
+  padding: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.social li {
+  margin: 0 10px;
+}
+
+.social a {
+  color: black;
+  padding: 7px 10px;
+  border-radius: 3px
+}
+
+.social a:hover {
+  transition: .3s ease-out;
+  background-color: #ffd15e;
+  color: white;
+}
+
+.social a i {
+  font-size:1.1rem;
+}
+
+
+
+.footerEnd {
+  padding: .8vh;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  background: #000;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.footerEnd span {
+  color: grey;
+}
