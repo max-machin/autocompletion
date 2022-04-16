@@ -5,6 +5,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
     let search_result = document.getElementById('search_result')
     let related_search = document.getElementById('related-search')
 
+    let separator = document.getElementById('separator')
+    
     let form = document.querySelector('form')
     
     search.addEventListener("keyup", function() {
@@ -14,7 +16,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
         {
             var data = new FormData(form)
             //data.append('term', term)
-            fetch('searchJSON.php', {
+            fetch('JSON/searchJSON.php', {
                 method: 'POST',
                 body: data
             })
@@ -31,7 +33,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                         search_result.innerHTML = str;
                     }
                 } else {
-                    search_result.innerHTML = "<p class='falseSearch'>Aucun résultat</p>"
+                    search_result.innerHTML = "<p class='falseSearch'>Aucun résultat .</p>"
                 }
                 // document.getElementById(search_result).innerHTML = str;
             })
@@ -45,7 +47,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
             //     document.getElementById('search_result').innerHTML = str;
             // })
         } else {
-            search_result.innerHTML = "<p class='falseSearch'>Veuillez saisir un jeux.</p>"
+            search_result.innerHTML = "";
         }
        
     })
@@ -56,24 +58,32 @@ window.addEventListener("DOMContentLoaded", (event) => {
         if(term.length >= 3){
 
             var relatedData = new FormData(form)
-            fetch('relatedJSON.php', {
+            fetch('JSON/relatedJSON.php', {
                 method: 'POST',
                 body: relatedData
             })
             .then(response => response.json())
             .then(resultat => {
-                if(Boolean(resultat))
-                {
+                if(Boolean(resultat[0]))
+                { 
+                    
+                    
                     let str = ""
                     for (let i = 0; i < resultat.length; i++) 
                     {
                         str = str + '<div><a href="element.php?id=' + resultat[i].id + '" class="list_jeux">' + resultat[i].nom + '</a></div>';
                         related_search.innerHTML = str;
+                        separator.style.display = 'block'
                     }
+                   
+                } else {
+                    separator.style.display = 'none';
+                    related_search.innerHTML = "";
                 }
             })
         } else {
-            related_search.innerHTML = "";
+            related_search.innerHTML = '';
+            separator.style.display = 'none'
         }
     })
 })

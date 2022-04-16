@@ -26,7 +26,11 @@
                 </button>
                 <input  name="search" id="search" class="form-control" type="text" placeholder="Rechercher.." autocomplete="off">
             </form> 
-            <div class="search-result result-header" id="search_result"></div>
+            <div class="search-result result-header">
+                <div id="search_result"></div>
+                <div class="separator" id="separator"></div>
+                <div class="related-search" id="related-search"></div>
+            </div>
         </div>
         <ul class="menu">
             <li><a href="">2022</a></li>

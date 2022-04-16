@@ -43,6 +43,9 @@ $count = $search->countResult($_GET['search']);
             </div>
         </article>
     </section>
+    <?php
+    require 'ressources/footer.php';
+    ?>
 </body>
 
 <script src="js/script.js" type="text/javascript"></script>

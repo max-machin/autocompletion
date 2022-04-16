@@ -19,7 +19,7 @@ html, body {
   border-bottom: 1px solid #e6e6e6;
 }
 
-.navbar .logo {
+.logo {
   cursor: pointer;
   line-height: 50px;
   font-size: 25px;
@@ -229,6 +229,7 @@ html, body {
   width: 600px;
   position: absolute;
   background-color: rgba(255, 255, 255, 0.771);
+  backdrop-filter: blur(1px);
 }
 
 .search-result div {
@@ -352,16 +353,28 @@ footer {
 
 .search-result div {
   align-items: center;
-  padding-left: 3vh;
   line-height: 40px;
   width: 100%;
   margin-left: 0;
-  border-bottom: 1px solid #d4d4d4;
+ 
+}
+
+.search-result div:nth-child(1) {
+   border-bottom: 1px solid #d4d4d4;
+}
+
+.search-result a {
+  margin-left: 3vh;
 }
 
 .result-header {
   width: 510px;
   margin-left: 6.3%;
+}
+.separator {
+  display: none;
+  height: 3vh;
+  background-color: rgba(128, 128, 128, 0.227);
 }
 
 .list_jeux {
@@ -376,15 +389,19 @@ footer {
 
 .search-result p {
   line-height: 40px;
-  padding-left: 3vh;
+  margin-left: 3vh;
   font-size: 20px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open sans', sans-serif;
   color: rgb(116, 116, 116);
   font-weight: 500;
 }
 
-.falseSearch {
-  color: red;
+.navbar-header-search .list_jeux {
+  font-size: 17px;
+}
+
+.navbar-header-search .search-result p {
+  font-size: 17px;
 }
 
 .jeuxSection {
@@ -419,7 +436,7 @@ footer {
 }
 
 .desc span {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open sans", sans-serif;
   font-weight: bold;
 }
 

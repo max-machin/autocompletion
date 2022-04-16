@@ -29,13 +29,14 @@ if (isset($_GET['id'])){
             </article>
             <p class='desc'><span>Date de sortie</span> : <?= $jeux['date']?></p>
             <div class="avis-prix">
-                <p class='desc'>Prix : <?= $jeux['prix'] ?> €</p>
-                <p class='desc'>Avis : <?= $jeux['avis'] ?> / 10</p>
+                <p class='desc'>Prix : <span><?= $jeux['prix'] ?> €</span></p>
+                <p class='desc'>Avis : <span><?= $jeux['avis'] ?> / 10</span></p>
             </div>
         </article>
     </section>
-
     <?php
+    require 'ressources/footer.php';
+
 } else {
     header('location: index.php');
 }
