@@ -1,4 +1,16 @@
 <?php
+require 'ressources/database.php';
+
+function valid_data($données)
+{
+    //trim permet de supprimer les espaces inutiles
+    $données = trim($données);
+    //stripslashes supprimes les antishlashs
+    $données = stripslashes($données);
+    //htmlspecialchars permet d'échapper certains caractéres spéciaux et les transforment en entité HTML
+    $données = htmlspecialchars($données);
+    return $données;
+}
 
 
 class search extends Database
@@ -16,19 +28,15 @@ class search extends Database
      * @return void
      */
     public function searchTerm($term){
-        if($_GET['search'] != ''){
-            $search = htmlspecialchars($_GET['search']);
-            $searchTerm = "$search%";
+
+            $search = valid_data($_GET['search']);
             $select = "SELECT * FROM jeux WHERE nom LIKE :term ORDER BY avis DESC";
             $find = $this->bdd->prepare($select);
-            $find->bindParam(':term' , $searchTerm, PDO::PARAM_STR);
-            $find->execute();
-            $data = $find->fetchAll(PDO::FETCH_ASSOC);
-            return $data;
-            
-        } else {
-            header('location: index.php');
-        }
+            $find->execute([
+                'term' => $search . '%'
+            ]);
+
+            return $find->fetchAll(PDO::FETCH_ASSOC);     
     }
 
     /**
@@ -38,9 +46,8 @@ class search extends Database
      * @return void
      */
     public function searchRelativeTerm($term){
-        if($_GET['search'] != ''){
             if (strlen($_GET['search']) >= 3){
-                $search = $_GET['search'];
+                $search = valid_data($_GET['search']);
                 $searchTerm = "%$search%";
                 $select = "SELECT DISTINCT id,nom,description FROM jeux WHERE nom LIKE :term";
                 $find = $this->bdd->prepare($select);
@@ -49,23 +56,33 @@ class search extends Database
                 $data = $find->fetchAll(PDO::FETCH_ASSOC);
                 return $data;
             }
-        } else {
-            header('location: index.php');
-        }
     }
 
     public function countResult($term){
-        if($_GET['search'] != ''){
-            $search = $_GET['search'];
-            $searchTerm = "$search%";
+            $search = valid_data($_GET['search']);
             $select = "SELECT DISTINCT id,nom,description FROM jeux WHERE nom LIKE :term";
             $find = $this->bdd->prepare($select);
-            $find->bindParam(':term' , $searchTerm, PDO::PARAM_STR);
+            $find->execute([
+                'term' => $search . '%'
+            ]);
+
+            return count($find->fetchAll(PDO::FETCH_ASSOC));
+    }
+
+    public function elementById($id)
+    {
+        if (isset($_GET['id'])) 
+        {
+            $id = valid_data($_GET['id']);
+            
+            $select = "SELECT * FROM jeux WHERE id = :id";
+            $find = $this->bdd->prepare($select);
+            $find->bindParam(':id', $id, PDO::PARAM_INT);
             $find->execute();
-            $data = $find->fetchAll(PDO::FETCH_ASSOC);
-            return count($data);
-        } else {
-            header('location: index.php');
+            $data = $find->fetch();
+            return $data;
         }
     }
 }
+
+?>

@@ -1,13 +1,6 @@
 <?php
 
-
-if (isset($_GET['submit'])){
-    if(!empty($_GET['search'])){
-        unset($_GET['submit']);
-    }
-}
-
-require_once 'ressources/header.php';
+require_once 'ressources/headerIndex.php';
 ?>
 
 
@@ -26,9 +19,9 @@ require_once 'ressources/header.php';
                         <button id="submit" class="btn" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
-                        <input  name="search" id="search" class="form-control" type="text" placeholder="Rechercher.." autocomplete="off"><br>
+                        <input  name="search" id="search" class="form-control" type="text" placeholder="Rechercher.." autocomplete="off">
                     </form>
-                    <span id="search_result"></span>
+                    <div class="search-result" id="search_result"></div>
                 </div>
             </div>
         </section>
@@ -57,6 +50,9 @@ require_once 'ressources/header.php';
             <p>Copyright ©2022 G'wame Corporation. Designed By <span>MACHIN MAX</span></p>
         </div>
     </footer>
-    
 </body>
+
+<!-- <script src="javascript/jquery-3.6.0.min.js"></script> -->
+<script src="js/script.js"></script>
+
 </html>

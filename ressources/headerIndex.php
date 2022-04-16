@@ -14,20 +14,10 @@
     <title>Autocompletion</title>
 </head>
 <body>
-    <nav class="navbar-header-search">
-        <a href="index.php"><label class="logo">
+    <nav class="navbar">
+        <label class="logo">
             G'wame
         </label>
-        </a>
-        <div class="search-wrap bg-spring">
-            <form action="recherche.php" method="get" class="search-box">
-                <button id="submit" class="btn" type="submit">
-                    <i class="fa fa-search"></i>
-                </button>
-                <input  name="search" id="search" class="form-control" type="text" placeholder="Rechercher.." autocomplete="off">
-            </form> 
-            <div class="search-result result-header" id="search_result"></div>
-        </div>
         <ul class="menu">
             <li><a href="">2022</a></li>
             <li><a href="">2021</a></li>
