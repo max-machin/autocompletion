@@ -1,7 +1,10 @@
 window.addEventListener("DOMContentLoaded", (event) => {
 
     let search = document.getElementById('search')
+
     let search_result = document.getElementById('search_result')
+    let related_search = document.getElementById('related-search')
+
     let form = document.querySelector('form')
     
     search.addEventListener("keyup", function() {
@@ -28,10 +31,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
                         search_result.innerHTML = str;
                     }
                 } else {
-                    search_result.innerHTML = '<p>Aucun résultat</p>'
+                    search_result.innerHTML = "<p class='falseSearch'>Aucun résultat</p>"
                 }
-               
-                
                 // document.getElementById(search_result).innerHTML = str;
             })
             // .then(function data(response){
@@ -44,9 +45,36 @@ window.addEventListener("DOMContentLoaded", (event) => {
             //     document.getElementById('search_result').innerHTML = str;
             // })
         } else {
-            search_result.innerHTML = "<p>Veuillez saisir un jeux.</p>"
+            search_result.innerHTML = "<p class='falseSearch'>Veuillez saisir un jeux.</p>"
         }
        
+    })
+
+    search.addEventListener("keyup", function(){
+        var term = search.value
+
+        if(term.length >= 3){
+
+            var relatedData = new FormData(form)
+            fetch('relatedJSON.php', {
+                method: 'POST',
+                body: relatedData
+            })
+            .then(response => response.json())
+            .then(resultat => {
+                if(Boolean(resultat))
+                {
+                    let str = ""
+                    for (let i = 0; i < resultat.length; i++) 
+                    {
+                        str = str + '<div><a href="element.php?id=' + resultat[i].id + '" class="list_jeux">' + resultat[i].nom + '</a></div>';
+                        related_search.innerHTML = str;
+                    }
+                }
+            })
+        } else {
+            related_search.innerHTML = "";
+        }
     })
 })
 

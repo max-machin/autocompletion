@@ -21,7 +21,10 @@ require_once 'ressources/headerIndex.php';
                         </button>
                         <input  name="search" id="search" class="form-control" type="text" placeholder="Rechercher.." autocomplete="off">
                     </form>
-                    <div class="search-result" id="search_result"></div>
+                    <div class="search-result">
+                        <div id="search_result"></div>
+                        <div class="related-search" id="related-search"></div>
+                    </div>
                 </div>
             </div>
         </section>

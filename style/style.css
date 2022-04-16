@@ -231,6 +231,10 @@ html, body {
   background-color: rgba(255, 255, 255, 0.771);
 }
 
+.search-result div {
+  gap: 5vh;
+}
+
 
 footer {
   border-top: 1px solid #e6e6e6;
@@ -371,11 +375,16 @@ footer {
 }
 
 .search-result p {
-  padding: 2vh 0;
-  font-size: 23px;
+  line-height: 40px;
+  padding-left: 3vh;
+  font-size: 20px;
   font-family: 'Montserrat', sans-serif;
-  color: black;
+  color: rgb(116, 116, 116);
   font-weight: 500;
+}
+
+.falseSearch {
+  color: red;
 }
 
 .jeuxSection {
@@ -386,6 +395,7 @@ footer {
 }
 
 .jeuxSection img {
+  max-width: 700px;
   max-height: 400px;
   height: 100%;
   margin-right: 5%;

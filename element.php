@@ -29,8 +29,8 @@ if (isset($_GET['id'])){
             </article>
             <p class='desc'><span>Date de sortie</span> : <?= $jeux['date']?></p>
             <div class="avis-prix">
-                <p class='desc'>Prix : <?= $jeux['prix'] ?></p>
-                <p class='desc'>Avis : <?= $jeux['avis'] ?></p>
+                <p class='desc'>Prix : <?= $jeux['prix'] ?> €</p>
+                <p class='desc'>Avis : <?= $jeux['avis'] ?> / 10</p>
             </div>
         </article>
     </section>
