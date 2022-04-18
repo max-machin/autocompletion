@@ -95,6 +95,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                 }
             })
         } else {
+            related_search.style.display = 'none'
             related_search.innerHTML = '';
             separator.style.display = 'none'
         }

@@ -67,7 +67,7 @@ main {
 
 .navbar-header-search {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 60px;
   width: 100%;
   padding: 0 40px;
@@ -190,7 +190,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color: #1a1a1a;
     height: 60px;
@@ -200,8 +200,7 @@ main {
 
   .top-nav-header div a {
     color: #1a1a1a;
-    font-size: 25px;
-    font-weight: 600;
+
   }
 
   .top-nav-header .search-wrap {
@@ -218,10 +217,6 @@ main {
 
   .top-nav-header {
     padding-left: 2vh;
-  }
-
-  .top-nav-header .search-wrap {
-    width: 70%;
   }
   
   .top-nav-header .menu > li {
@@ -343,8 +338,6 @@ main {
 
   .top-nav div a {
     color: #1a1a1a;
-    font-size: 25px;
-    font-weight: 600;
   }
 
   .top-nav .search-wrap {
@@ -944,35 +937,70 @@ footer {
   border: 1px solid #e6e6e6;
  
 }
+@media (min-width: 1400px) {
+}
+@media (max-width: 1400px) {
+  .jeuxSection {
+    display: inline;
+    padding: 0;
+    text-align: center;
+    padding-bottom: 3vh;
+  }
+  .jeuxSection .plateforme {
+    justify-content: center;
+  }
+
+  .jeuxSection img {
+    margin: 1vh auto;
+    max-width: 620px;
+    max-height: 400px;
+  }
+
+  .selfGame {
+    padding: 5vh;
+  }
+
+  .avis-prix {
+    margin-bottom: 3vh;
+  }
+
+  
+}
 
 @media (max-width: 768px) {
   .jeuxSection {
     display: inline;
     padding: 0;
     text-align: center;
+
   }
   .jeuxSection .plateforme {
     justify-content: center;
   }
   .jeuxSection img {
     margin: 1vh auto;
-    max-width: 500px;
+    max-width: 400px;
     max-height: 300px;
+    padding-bottom: 3vh;
+  }
+
+}
+
+@media (max-width:500px) {
+  .jeuxSection img {
+    max-width: 300px;
+    max-height: 200px;
   }
 }
 
 @media (max-width:391px){
   .jeuxSection img {
-    max-width: 300px;
-    max-height: 200px;
+    max-width: 270px;
+    max-height: 170px;
   }
 
   .selfGame {
     padding: 2vh;
-  }
-
-  .selfGame .avis-prix{
-    margin-bottom: 5vh;
   }
 }
 
