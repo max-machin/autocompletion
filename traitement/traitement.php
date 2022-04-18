@@ -28,8 +28,8 @@ class search extends Database
      * @return void
      */
     public function searchTerm($term){
-
-            $search = valid_data($_GET['search']);
+            $term = $_GET['search'];
+            $search = valid_data($term);
             $select = "SELECT * FROM jeux WHERE nom LIKE :term ORDER BY avis DESC";
             $find = $this->bdd->prepare($select);
             $find->execute([

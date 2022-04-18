@@ -37,11 +37,14 @@ if (isset($_GET['id'])){
     <?php
     require 'ressources/footer.php';
 
+
 } else {
     header('location: index.php');
 }
 ?>
 
-
+</body>
 
 <script src="js/script.js" type="text/javascript"></script>
+
+</html>

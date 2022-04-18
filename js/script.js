@@ -1,73 +1,86 @@
 window.addEventListener("DOMContentLoaded", (event) => {
 
+    //Récupération de l'input de recherche 
     let search = document.getElementById('search')
 
+    //Récupération de la div qui contiendra les résultats précis de recherche
     let search_result = document.getElementById('search_result')
+    //Récupération de la div qui contiendra les résultats en rapport avec la recherche
     let related_search = document.getElementById('related-search')
 
+    search_result.style.display = "none"
+    related_search.style.display = "none"
+
+    // Variable servant à la création d'un séparateur : pour séparer les deux types de résultats
     let separator = document.getElementById('separator')
     
+    // Récupération du formulaire de saisie de recherche
     let form = document.querySelector('form')
     
+    // Ajout d'un événement sur l'input de recherche : aprés pression sur une touche du clavier
     search.addEventListener("keyup", function() {
         
+        // Récuperation de la valeur de l'input contenant la recherche 
         var term = search.value
+
+        // Si au moins 1 caractères est saisit
         if (term.length > 0)
         {
+            // Création d'un objet FormData
             var data = new FormData(form)
-            //data.append('term', term)
+            // Fetch des data concerné sur la page JSON/searchJSON.php
             fetch('JSON/searchJSON.php', {
                 method: 'POST',
                 body: data
             })
-            // .then(response => response.json())
-            // .then(data => {
+            // Récupération de la réponse en JSON
             .then(response => response.json())
             .then(result => {
+                // Si il y a un résultat alors on insére les jeux trouvé dans la div d'affiche des résultats
                 if(Boolean(result[0]))
-                {
+                {   
+                    search_result.style.display = "block"
                     let str = "";
                     for (let i = 0; i < result.length; i++)
                     {
+
                         str = str + '<div><a href="element.php?id=' + result[i].id + '" class="list_jeux">' + result[i].nom + '</a></div>';
                         search_result.innerHTML = str;
                     }
                 } else {
                     search_result.innerHTML = "<p class='falseSearch'>Aucun résultat .</p>"
                 }
-                // document.getElementById(search_result).innerHTML = str;
             })
-            // .then(function data(response){
-            //     console.log(data);
-            //     let str = "";
-            //     for (let i = 0; i < data.length; i++)
-            //     {
-            //         str = str + '<a href="element.php?cars=' + data[i][0]['id'] + '" class="carsList">' + data[i][0]['titre'] + '</a><br />';
-            //     }
-            //     document.getElementById('search_result').innerHTML = str;
-            // })
         } else {
             search_result.innerHTML = "";
+            search_result.style.borderBottom = "none"
+            related_search.innerHTML = "";
         }
        
     })
 
+    // Ajout d'un événement sur l'input de recherche : aprés pression sur une touche du clavier
     search.addEventListener("keyup", function(){
+        // Récupération de la valeur de l'input de recherche
         var term = search.value
 
-        if(term.length >= 3){
+        // Si au moins 2 caractères sont saisit
+        if(term.length >= 2){
 
+            // Création d'un objet FormData
             var relatedData = new FormData(form)
             fetch('JSON/relatedJSON.php', {
                 method: 'POST',
                 body: relatedData
             })
+            // Récupération de la réponse en JSON
             .then(response => response.json())
             .then(resultat => {
+                console.log(resultat)
+                // Si il y a un résultat alors on insére les jeux trouvé dans la div de résultat
                 if(Boolean(resultat[0]))
                 { 
-                    
-                    
+                    related_search.style.display = 'block'
                     let str = ""
                     for (let i = 0; i < resultat.length; i++) 
                     {
@@ -87,26 +100,3 @@ window.addEventListener("DOMContentLoaded", (event) => {
         }
     })
 })
-
-// $('#search').keyup(function()
-// {
-//     if ($('#search').val() !== "")
-//     {
-//     console.log('coucou')
-//         $.ajax({
-//             url: 'test.php',
-//             type: 'GET',
-//             dataType: 'JSON',
-//             data: 'search=' + $(this).val()
-//         }).done(function (data)
-//         {
-//             console.log(data)
-//             let str = "";
-//             for (let i = 0; i < data.length; i++)
-//             {
-//                 str = str + "<a href='element.php?id=" + data[i][0]['id'] + "'>" + data[i][0]['nom'] + "</a><br />";
-//             }
-//             document.getElementById('search_result').innerHTML = str;
-//         })
-//     }
-// })

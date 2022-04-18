@@ -13,24 +13,18 @@ catch (PDOException $e)
     
 }
 
-
+// Sécurisation des valeurs entré dans l'input
 $search = htmlspecialchars(trim($_POST['search'])); 
    
 
-
-$query = $bdd -> prepare('SELECT nom,id FROM jeux WHERE nom LIKE :term ORDER BY RAND() LIMIT 5');
+// Requête de récupération des jeux contenant la recherche de l'utilisateur dans le nom
+$query = $bdd -> prepare('SELECT nom,id FROM jeux WHERE nom LIKE :term ORDER BY RAND() LIMIT 4');
     $query->execute([
         "term" => '%'.$search.'%'
     ]);
 
-    $i = 0;
-    $gameJSON = array();
     $result = $query->fetchAll();
-    // while ($result = $query->fetch(PDO::FETCH_ASSOC))
-    // {
-    //     $tab[$i][] = $result;
-    //     $i++;
-    // }
-
+   
+    // encodage en JSON pour fetch
     echo json_encode($result);
 ?>
