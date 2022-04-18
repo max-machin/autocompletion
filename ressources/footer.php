@@ -13,7 +13,7 @@
         <ul class="social">
             <li><a href=""><i class="fab fa-facebook"></i></a></li>
             <li><a href=""><i class="fab fa-twitter"></i></a></li>
-            <li><a href=""><i class="fab fa-git"></i></a></li>
+            <li><a href="https://github.com/max-machin/autocompletion" target="_blank"><i class="fab fa-git"></i></a></li>
             <li><a href=""><i class="fab fa-brands fa-linkedin"></i></a></li>
             <li><a href=""><i class="fab fa-google-plus"></i></a></li>
         </ul>

@@ -453,7 +453,7 @@ main {
 #menu-toggle:checked ~ .menu li a {
     color: white;
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 17px;
     }
 }
@@ -571,6 +571,12 @@ main {
   font-size: 15px;
   border: none;
   font-family: 'Open Sans', sans-serif;
+}
+
+@media (min-width: 768px) {
+  .search-wrap .search-box input {
+    font-size: 18px;
+  }
 }
 
 .search-wrap .search-box .btn {
