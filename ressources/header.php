@@ -22,7 +22,6 @@
         </label>
         </a>
         <div class="search-wrap bg-spring">
-            <div class="width">
                 <form action="recherche.php" method="get" class="search-box">
                     <button id="submit" class="btn" type="submit">
                         <i class="fa fa-search"></i>
@@ -34,7 +33,6 @@
                     <div class="separator" id="separator"></div>
                     <div class="related-search" id="related-search"></div>
                 </div>
-            </div>
         </div>
         <input id="menu-toggle" type="checkbox" />
         <label class='menu-button-container' for="menu-toggle">
